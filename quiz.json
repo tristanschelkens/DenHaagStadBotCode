@@ -1,0 +1,38 @@
+[
+	{
+		"question": "Welke kleur is de lucht?",
+		"answers": ["blue", "blauw"]
+	},
+	{
+		"question": "Hoeveel letters zitten er in het alfabet?",
+		"answers": ["26", "twenty-six", "twenty six", "twentysix", "zesentwintig"]
+	},
+	{
+		"question": "Wie heeft deze bot gemaakt?",
+		"answers": ["Tristan", "tristan", "Tweeli", "tweeli"]
+	},
+	{
+		"question": "Hoe noemt het Discord waar het ownership van de Discord server op staat?",
+		"answers": ["Zigener/TeamDJD", "zigener/teamDJD", "Zigener", "zigener"]
+	},
+	{
+		"question": "Hoeveel HC's zijn er?",
+		"answers": ["Vier", "vier", "4"]
+	},
+	{
+		"question": "Hoeveel text channels telt de Discord server?",
+		"answers": ["Vijfennegentig", "vijfennegentig", "95"]
+	},
+	{
+		"question": "Hoeveel voice channels telt de Discord server?",
+		"answers": ["Zeventien", "zeventien", "17"]
+	},
+	{
+		"question": "Hoeveel roles telt de Discord server?",
+		"answers": ["Zevenentachtig", "zevenentachtig", "87"]
+	},
+	{
+		"question": "In welk jaar is de Discord server gemaakt?",
+		"answers": ["2018"]
+	}
+]
