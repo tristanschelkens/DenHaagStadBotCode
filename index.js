@@ -97,7 +97,7 @@ client.once("ready", async () => {
 
     let clientId = '866387719428243486';
 
-    const rest = new REST({ version: '9' }).setToken(botConfig.token);
+    const rest = new REST({ version: '9' }).setToken(process.env.token);
 
     (async () => {
         try {
