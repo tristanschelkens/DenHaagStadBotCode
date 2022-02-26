@@ -22,6 +22,7 @@ const client = new Client({
 client.commands = new Collection();
 client.aliases = new Collection();
 client.slashCommands = new Collection();
+
 const slashCommands = [];
 
 const commandFiles = fs.readdirSync("./Commands/").filter(file => file.endsWith(".js"));
@@ -436,6 +437,6 @@ client.on('messageCreate', async message => {
 
 });
 
-// client.login(process.env.token);
+client.login(process.env.token);
 
-client.login(botConfig.token)
+// client.login(botConfig.token)
