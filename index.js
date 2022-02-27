@@ -97,6 +97,8 @@ client.once("ready", async () => {
 
     let clientId = '866387719428243486';
 
+    // const rest = new REST({ version: '9' }).setToken(botConfig.token);
+
     const rest = new REST({ version: '9' }).setToken(process.env.token);
 
     (async () => {
@@ -117,171 +119,6 @@ client.once("ready", async () => {
 
         }
     })();
-
-    // commands.create({
-    //     name: 'gameinfo',
-    //     description: 'Geeft info weer over de game.'
-    // });
-
-    //     commands.create({
-    //         name: 'servers',
-    //         description: 'Geeft alle Discord servers weer.'
-    //     });
-
-    //     commands.create({
-    //         name: 'gangs',
-    //         description: 'Geeft alle gangs weer.'
-    //     });
-
-    //     commands.create({
-    //         name: 'dog',
-    //         description: 'Geeft een foto van een hond weer.'
-    //     });
-
-    //     commands.create({
-    //         name: 'cat',
-    //         description: 'Geeft een foto van een kat weer.'
-    //     });
-
-    //     commands.create({
-    //         name: 'quote',
-    //         description: 'Reageert met een quote.'
-    //     });
-
-    //     commands.create({
-    //         name: 'test',
-    //         description: 'Met dit commando kan je testen als de bot werkt.'
-    //     });
-
-    //     commands.create({
-    //         name: 'avatar',
-    //         description: 'Geeft de avatar weer van de opgegven persoon.',
-    //         options: [
-    //             {
-    //                 name: 'avatarpersoon',
-    //                 description: 'Persoon.',
-    //                 type: 6,
-    //                 required: false,
-    //             }
-    //         ]
-    //     });
-
-    //     commands.create({
-    //         name: 'commands',
-    //         description: 'Geeft commands weer.',
-    //         options: [
-    //             {
-    //                 name: 'command_categorie',
-    //                 description: 'De categorie van het commando.',
-    //                 type: 10,
-    //                 required: false,
-    //             }
-    //         ]
-    //     });
-
-    //     commands.create({
-    //         name: 'members',
-    //         description: 'Geeft het aantal leden weer.',
-    //     });
-
-    //     commands.create({
-    //         name: 'serverinfo',
-    //         description: 'Geeft info weer over de Discord server.'
-    //     });
-
-    //     commands.create({
-    //         name: 'botinfo',
-    //         description: 'Geeft info weer over de Discord bot.'
-    //     });
-
-    //     commands.create({
-    //         name: 'eightball',
-    //         description: 'Geeft een willekeurig antwoord op je vraag.',
-    //         options: [
-    //             {
-    //                 name: 'eightballvraag',
-    //                 description: 'Zet hier je vraag. • Het minst 4 woorden.',
-    //                 required: true,
-    //                 type: 3
-    //             }
-    //         ]
-    //     });
-
-    //     commands.create({
-    //         name: 'optellen',
-    //         description: 'Twee getallen optellen.',
-    //         options: [
-    //             {
-    //                 name: 'optellen1',
-    //                 description: 'Eerste nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             },
-    //             {
-    //                 name: 'optellen2',
-    //                 description: 'Tweede nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             }
-    //         ]
-    //     });
-
-    //     commands.create({
-    //         name: 'aftrekken',
-    //         description: 'Twee getallen aftrekken.',
-    //         options: [
-    //             {
-    //                 name: 'aftrekken1',
-    //                 description: 'Eerste nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             },
-    //             {
-    //                 name: 'aftrekken2',
-    //                 description: 'Tweede nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             }
-    //         ]
-    //     });
-
-    //     commands.create({
-    //         name: 'delen',
-    //         description: 'Twee getallen aftrekken.',
-    //         options: [
-    //             {
-    //                 name: 'delen1',
-    //                 description: 'Eerste nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             },
-    //             {
-    //                 name: 'delen2',
-    //                 description: 'Tweede nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             }
-    //         ]
-    //     });
-
-    //     commands.create({
-    //         name: 'maal',
-    //         description: 'Twee getallen aftrekken.',
-    //         options: [
-    //             {
-    //                 name: 'maal1',
-    //                 description: 'Eerste nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             },
-    //             {
-    //                 name: 'maal2',
-    //                 description: 'Tweede nummer.',
-    //                 type: 10,
-    //                 required: true,
-    //             }
-    //         ]
-    //     });
 
 });
 
@@ -332,6 +169,8 @@ client.on('interactionCreate', async (interaction, err) => {
         const slashCommand = client.slashCommands.get(interaction.commandName);
 
         if (!slashCommand) return;
+
+        // await slashCommand.execute(client, interaction);
 
         try {
 
@@ -437,6 +276,6 @@ client.on('messageCreate', async message => {
 
 });
 
-// client.login(process.env.token);
+client.login(process.env.token);
 
-client.login(botConfig.token)
+// client.login(botConfig.token)
