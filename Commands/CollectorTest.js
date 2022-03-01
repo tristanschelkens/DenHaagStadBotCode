@@ -2,40 +2,28 @@ const discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
-    return message.reply('> Dit commando is niet in gebruik')
+    message.reply('> Dit commando is niet in gebuik.')
 
-    // const filter = m => m.content.includes('discord');
-
-    // if (!message.member.roles.cache.has('682635913431482471')) return message.reply('> Jij kan dit niet.');
-
-    // var trainingLogChannel = message.member.guild.channels.cache.get("939819015856095262");
-
+    // // const filter = m => m.content.includes('discord');
     // const collector = message.channel.createMessageCollector({ time: 15000 });
+    
+    // collector.on('collect', collectorMessageOne => {
 
-    // message.reply('> Hoeveel trainees waren er bij uw training?');
-
-    // collector.on('collect', message1 => {
-
-    //     console.log(`Collected ${message1.content}`);
 
     // });
 
-    // message.channel.send(`> ${messsage.author}, hoe is je training verlopen?`);
-
-    // collector.on('collect', message2 => {
-
-    //     console.log(`Collected ${message2.content}`);
+    
+    // collector.on('end', collectedMessagesOne => {
+        
+    //     message.channel.send('De collector is gestopt, deze berichten heb ik gelogd: `' + collectedMessagesOne + '`.')
 
     // });
 
-    // collector.on('end', collected => {
-    //     message.channel.send(`Ik heb ${collected.size} items gecollect.`);
-    // });
 
 }
 
 module.exports.help = {
-    name: 'training',
+    name: 'collector',
     category: 'staff',
     description: 'Met dit commando kan een server moderator meerdere berichten verwijderen in 1 keer.',
     aliases: []
