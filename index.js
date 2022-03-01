@@ -97,9 +97,9 @@ client.once("ready", async () => {
 
     let clientId = '866387719428243486';
 
-    const rest = new REST({ version: '9' }).setToken(botConfig.token);
+    // const rest = new REST({ version: '9' }).setToken(botConfig.token);
 
-    // const rest = new REST({ version: '9' }).setToken(process.env.token);
+    const rest = new REST({ version: '9' }).setToken(process.env.token);
 
     (async () => {
         try {
@@ -276,6 +276,6 @@ client.on('messageCreate', async message => {
 
 });
 
-// client.login(process.env.token);
+client.login(process.env.token);
 
-client.login(botConfig.token)
+// client.login(botConfig.token)
