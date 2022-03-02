@@ -1,9 +1,9 @@
-const { Client, Intents, intents, Collection, Interaction } = require('discord.js');
+const { Client, Intents, intents, Collection, Interaction, MessageAttachment, MessageEmbed } = require('discord.js');
+const discord = require('discord.js')
 const botConfig = require('./botConfig.json');
 const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const discord = require("discord.js");
 const moment = require("moment");
 const package = require('./package.json');
 const quotes = require('./Quotes.json');
@@ -97,9 +97,9 @@ client.once("ready", async () => {
 
     let clientId = '866387719428243486';
 
-    const rest = new REST({ version: '9' }).setToken(botConfig.token);
+    // const rest = new REST({ version: '9' }).setToken(botConfig.token);
 
-    // const rest = new REST({ version: '9' }).setToken(process.env.token);
+    const rest = new REST({ version: '9' }).setToken(process.env.token);
 
     (async () => {
         try {
@@ -125,7 +125,7 @@ client.once("ready", async () => {
 client.on('messageDelete', async (messageDeleted) => {
 
     var messageDeletedErrorEmbed = new discord.MessageEmbed()
-        .setAuthor({ name: `${messageDeleted.author.tag}`, iconURL: `${messageDeleted.author.avatarURL({ size: 4096 })}`})
+        .setAuthor({ name: `${messageDeleted.author.tag}`, iconURL: `${messageDeleted.author.avatarURL({ size: 4096 })}` })
         .addFields(
             { name: 'Bericht gemaakt door', value: `> <@${messageDeleted.author.id}>` },
             { name: 'Bericht', value: `> \`Het bericht was te lang.\`` },
@@ -143,8 +143,8 @@ client.on('messageDelete', async (messageDeleted) => {
     if (messageDeleted.content.length > 250) return client.channels.cache.get('925789063586390036').send({ embeds: [messageDeletedErrorEmbed] });
 
     var messageDeletedEmbed = new discord.MessageEmbed()
-    .setAuthor({ name: `${messageDeleted.author.tag}`, iconURL: `${messageDeleted.author.avatarURL({ size: 4096 })}`})
-    .addFields(
+        .setAuthor({ name: `${messageDeleted.author.tag}`, iconURL: `${messageDeleted.author.avatarURL({ size: 4096 })}` })
+        .addFields(
             { name: 'Bericht gemaakt door', value: `> <@${messageDeleted.author.id}>` },
             { name: 'Bericht', value: `> ${content}` },
             { name: "Bericht id", value: `> ${messageDeleted.id}` },
@@ -161,7 +161,7 @@ client.on('messageDelete', async (messageDeleted) => {
 client.on('interactionCreate', async (interaction, err) => {
 
     if (interaction.isSelectMenu()) {
-        
+
         const { customId, values, member } = interaction;
 
     } else if (interaction.isCommand()) {
@@ -187,6 +187,12 @@ client.on('interactionCreate', async (interaction, err) => {
 });
 
 client.on('guildMemberAdd', member => {
+
+    var verifyChannel = member.guild.channels.cache.get('948602786805870613');
+
+    if (!verifyChannel) return;
+
+    verifyChannel.send(`> Welcome to the server ${member}! You must be verified before you can watch all the channels! You can be verified by typing \`,verify\`.`);
 
     var chatChannel = member.guild.channels.cache.get('669284473711362088');
 
@@ -276,6 +282,6 @@ client.on('messageCreate', async message => {
 
 });
 
-// client.login(process.env.token);
+client.login(process.env.token);
 
-client.login(botConfig.token)
+// client.login(botConfig.token)
